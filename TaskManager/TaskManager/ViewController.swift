@@ -61,6 +61,7 @@ class ViewController: UIViewController {
 //            print("Text field: \(textField?.text)")
             let newTask = Task(name: textField!.text!)
             self.tasks.append(newTask)
+            self.rootView.tableView.reloadData()
         }))
 
         // 4. Present the alert.
