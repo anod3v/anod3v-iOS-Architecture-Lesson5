@@ -16,7 +16,8 @@ class TableViewCell: UITableViewCell {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         label.numberOfLines = 1
-        label.sizeToFit()
+//        label.backgroundColor = .blue
+//        label.sizeToFit()
         
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -27,6 +28,7 @@ class TableViewCell: UITableViewCell {
         label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         label.numberOfLines = 1
         label.textAlignment = .center
+//        label.backgroundColor = .cyan
         
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -57,12 +59,13 @@ class TableViewCell: UITableViewCell {
             
             taskNameLabel.centerYAnchor.constraint(equalTo: subtasksCountLabel.centerYAnchor),
             taskNameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            taskNameLabel.widthAnchor.constraint(equalToConstant: 200),
+            taskNameLabel.widthAnchor.constraint(equalToConstant: 280),
             taskNameLabel.heightAnchor.constraint(equalToConstant: 30),
             
             subtasksCountLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
-            subtasksCountLabel.widthAnchor.constraint(equalToConstant: 200),
+//            subtasksCountLabel.widthAnchor.constraint(equalToConstant: 200),
             subtasksCountLabel.leadingAnchor.constraint(equalTo: taskNameLabel.trailingAnchor, constant: 20),
+            subtasksCountLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
             subtasksCountLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20),
         ])
     }
