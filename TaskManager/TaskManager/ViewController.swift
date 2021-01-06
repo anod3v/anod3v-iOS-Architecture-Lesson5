@@ -41,7 +41,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        navigationController?.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "New task", style: .plain, target: self, action: #selector(addChildTask))
+        title = "Мои задачи"
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "New task", style: .done, target: self, action: #selector(addChildTask))
         
     }
     
