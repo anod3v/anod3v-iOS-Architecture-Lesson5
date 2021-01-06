@@ -15,7 +15,10 @@ class TaskService {
 
     internal init() {
         self.rootTask = Task(name: "устроить вечеринку", childTasks: [
-            Task(name: "пригласить друзей"),
+            Task(name: "пригласить друзей", childTasks: [
+            Task(name: "устроить еще одну вечеринку"),
+            Task(name: "устроить еще одну вечеринку")
+            ]),
             Task(name: "напомнить им купить еду и напитки")
         ])
     }

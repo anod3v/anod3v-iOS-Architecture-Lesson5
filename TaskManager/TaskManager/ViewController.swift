@@ -25,24 +25,16 @@ class ViewController: UIViewController {
     
     override func loadView() {
         super.loadView()
-        
         view = rootView
+        rootView.tableView.reloadData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        title = "Мои задачи"
+        title = "\(task.name)"
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "+", style: .done, target: self, action: #selector(addChildTask))
         
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-
-//        if self.isMovingFromParent {
-//            if let parentTask = TaskService.shared
-//        }
     }
     
     @objc func addChildTask() {
@@ -85,7 +77,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.reuseId, for: indexPath) as! TableViewCell
         cell.selectionStyle = .none
         let cellTask = task.childTasks[indexPath.row]
-        cell.configure(task: cellTask)
+        let count = task.childTasks[indexPath.row].childTasks.count
+        cell.configure(task: cellTask, subtasksCount: count)
         return cell
     }
     

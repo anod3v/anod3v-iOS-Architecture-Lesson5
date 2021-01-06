@@ -14,7 +14,7 @@ class TableViewCell: UITableViewCell {
     
     private(set) var taskNameLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 32, weight: .bold)
+        label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         label.numberOfLines = 1
         label.sizeToFit()
         
@@ -22,9 +22,9 @@ class TableViewCell: UITableViewCell {
         return label
     }()
     
-    private(set) var taskDurationLabel: UILabel = {
+    private(set) var subtasksCountLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 32, weight: .bold)
+        label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         label.numberOfLines = 1
         label.textAlignment = .center
         
@@ -44,26 +44,26 @@ class TableViewCell: UITableViewCell {
     
     func addViews() {
         contentView.addSubview(taskNameLabel)
-        contentView.addSubview(taskDurationLabel)
+        contentView.addSubview(subtasksCountLabel)
     }
     
-    func configure(task: Task) {
+    func configure(task: Task, subtasksCount: Int) {
         taskNameLabel.text = task.name
-
+        subtasksCountLabel.text = "\(subtasksCount)"
     }
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
             
-            taskNameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
+            taskNameLabel.centerYAnchor.constraint(equalTo: subtasksCountLabel.centerYAnchor),
             taskNameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             taskNameLabel.widthAnchor.constraint(equalToConstant: 200),
-            taskNameLabel.heightAnchor.constraint(equalToConstant: 130),
+            taskNameLabel.heightAnchor.constraint(equalToConstant: 30),
             
-            taskDurationLabel.topAnchor.constraint(equalTo: taskNameLabel.bottomAnchor),
-            taskDurationLabel.widthAnchor.constraint(equalToConstant: 200),
-            taskDurationLabel.leadingAnchor.constraint(equalTo: taskNameLabel.trailingAnchor, constant: 20),
-            taskDurationLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 20),
+            subtasksCountLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
+            subtasksCountLabel.widthAnchor.constraint(equalToConstant: 200),
+            subtasksCountLabel.leadingAnchor.constraint(equalTo: taskNameLabel.trailingAnchor, constant: 20),
+            subtasksCountLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20),
         ])
     }
 }
