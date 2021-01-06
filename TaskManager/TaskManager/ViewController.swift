@@ -13,10 +13,14 @@ class ViewController: UIViewController {
     private(set) var rootView = MainView()
     
     private(set) var tasks = [
-        Task(name: "выпить"),
-        Task(name: "покурить"),
-        Task(name: "еще выпить"),
-        Task(name: "еще покурить")
+        Task(name: "устроить вечеринку", childTasks: [
+            Task(name: "пригласить друзей"),
+            Task(name: "напомнить им купить еду и напитки")
+        ]),
+        Task(name: "устроить нормальную вечеринку", childTasks: [
+            Task(name: "пригласить еще друзей"),
+            Task(name: "напомнить им купить еще еды и напитков")
+        ])
     ]
     
     init() {
@@ -37,7 +41,29 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
+        navigationController?.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "New task", style: .plain, target: self, action: #selector(addChildTask))
         
+    }
+    
+    @objc func addChildTask() {
+        
+        let alert = UIAlertController(title: "Новая подзадача", message: "Укажите название задачи", preferredStyle: .alert)
+
+        //2. Add the text field. You can configure it however you need.
+        alert.addTextField { (textField) in
+            textField.text = "Название задачи"
+        }
+
+        // 3. Grab the value from the text field, and print it when the user clicks OK.
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+            let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
+//            print("Text field: \(textField?.text)")
+            let newTask = Task(name: textField!.text!)
+            self.tasks.append(newTask)
+        }))
+
+        // 4. Present the alert.
+        self.present(alert, animated: true, completion: nil)
     }
     
     func setupViews() {
@@ -64,13 +90,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let newViewController = ViewController()
-        newViewController.tasks = [
-        Task(name: "снова выпить"),
-        Task(name: "снова покурить"),
-        Task(name: "опять выпить"),
-        Task(name: "опять покурить")
-        ]
-//        self.present(newViewController, animated: true, completion: nil)
+        newViewController.tasks = self.tasks[indexPath.row].childTasks
+        //        self.present(newViewController, animated: true, completion: nil)
         navigationController?.pushViewController(newViewController, animated: true)
     }
     

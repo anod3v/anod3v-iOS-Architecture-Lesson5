@@ -28,6 +28,11 @@ class Task: Taskable {
     init(name: String) {
         self.name = name
     }
+    
+    init(name: String, childTasks: [Task]) {
+        self.name = name
+        self.childTasks = childTasks
+    }
 }
 
 
