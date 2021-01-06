@@ -10,7 +10,7 @@ import Foundation
 
 protocol Taskable {
     var name: String { get set }
-    var childTask: Task? { get set }
+    var childTasks: [Task] { get set }
     func createChildTask(name: String)
     
 }
@@ -19,15 +19,14 @@ class Task: Taskable {
     
     var name: String
     
-    var childTask: Task?
+    var childTasks = [Task]()
     
     func createChildTask(name: String) {
-        childTask = Task(name: name)
+        childTasks.append(Task(name: name))
     }
     
     init(name: String) {
         self.name = name
-        self.childTask = nil
     }
 }
 

@@ -13,10 +13,10 @@ class ViewController: UIViewController {
     private(set) var rootView = MainView()
     
     private(set) var tasks = [
-        Task(name: "выпить", durationInMinutes: 60),
-        Task(name: "покурить", durationInMinutes: 5),
-        Task(name: "еще выпить", durationInMinutes: 60),
-        Task(name: "еще покурить", durationInMinutes: 5)
+        Task(name: "выпить"),
+        Task(name: "покурить"),
+        Task(name: "еще выпить"),
+        Task(name: "еще покурить")
     ]
     
     init() {
@@ -65,12 +65,13 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let newViewController = ViewController()
         newViewController.tasks = [
-        Task(name: "снова выпить", durationInMinutes: 60),
-        Task(name: "снова покурить", durationInMinutes: 5),
-        Task(name: "опять выпить", durationInMinutes: 60),
-        Task(name: "опять покурить", durationInMinutes: 5)
+        Task(name: "снова выпить"),
+        Task(name: "снова покурить"),
+        Task(name: "опять выпить"),
+        Task(name: "опять покурить")
         ]
-        self.present(newViewController, animated: true, completion: nil)
+//        self.present(newViewController, animated: true, completion: nil)
+        navigationController?.pushViewController(newViewController, animated: true)
     }
     
     
