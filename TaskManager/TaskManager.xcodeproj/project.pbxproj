@@ -15,6 +15,7 @@
 		550F839D25A4AF5600734341 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F839C25A4AF5600734341 /* MainView.swift */; };
 		550F839F25A4AF8500734341 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F839E25A4AF8500734341 /* TableViewCell.swift */; };
 		5527C4BA25A4D9F3006433F0 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5527C4B925A4D9F3006433F0 /* Task.swift */; };
+		5546A75A25A6326900E4DCA5 /* TaskService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5546A75925A6326900E4DCA5 /* TaskService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		550F839C25A4AF5600734341 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		550F839E25A4AF8500734341 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		5527C4B925A4D9F3006433F0 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		5546A75925A6326900E4DCA5 /* TaskService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				550F838C25A4A9BF00734341 /* ViewController.swift */,
 				550F839C25A4AF5600734341 /* MainView.swift */,
 				5527C4B925A4D9F3006433F0 /* Task.swift */,
+				5546A75925A6326900E4DCA5 /* TaskService.swift */,
 				550F839E25A4AF8500734341 /* TableViewCell.swift */,
 				550F839125A4A9C100734341 /* Assets.xcassets */,
 				550F839325A4A9C100734341 /* LaunchScreen.storyboard */,
@@ -146,6 +149,7 @@
 				550F839F25A4AF8500734341 /* TableViewCell.swift in Sources */,
 				550F839D25A4AF5600734341 /* MainView.swift in Sources */,
 				550F838D25A4A9BF00734341 /* ViewController.swift in Sources */,
+				5546A75A25A6326900E4DCA5 /* TaskService.swift in Sources */,
 				550F838925A4A9BF00734341 /* AppDelegate.swift in Sources */,
 				550F838B25A4A9BF00734341 /* SceneDelegate.swift in Sources */,
 				5527C4BA25A4D9F3006433F0 /* Task.swift in Sources */,

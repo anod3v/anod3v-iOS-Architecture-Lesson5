@@ -12,16 +12,7 @@ class ViewController: UIViewController {
     
     private(set) var rootView = MainView()
     
-    private(set) var tasks = [
-        Task(name: "устроить вечеринку", childTasks: [
-            Task(name: "пригласить друзей"),
-            Task(name: "напомнить им купить еду и напитки")
-        ]),
-        Task(name: "устроить нормальную вечеринку", childTasks: [
-            Task(name: "пригласить еще друзей"),
-            Task(name: "напомнить им купить еще еды и напитков")
-        ])
-    ]
+    private(set) var tasks = TaskService.shared.rootTask.childTasks
     
     init() {
         super.init(nibName: .none, bundle: .none)
@@ -42,8 +33,16 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         title = "Мои задачи"
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "New task", style: .done, target: self, action: #selector(addChildTask))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "+", style: .done, target: self, action: #selector(addChildTask))
         
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+//        if self.isMovingFromParent {
+//            if let parentTask = TaskService.shared
+//        }
     }
     
     @objc func addChildTask() {
@@ -52,7 +51,7 @@ class ViewController: UIViewController {
 
         //2. Add the text field. You can configure it however you need.
         alert.addTextField { (textField) in
-            textField.text = "Название задачи"
+            textField.text = "Новая подзадача"
         }
 
         // 3. Grab the value from the text field, and print it when the user clicks OK.
