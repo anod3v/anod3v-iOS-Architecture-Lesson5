@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     
     private(set) var rootView = MainView()
     
-    private(set) var tasks = TaskService.shared.rootTask.childTasks
+    private(set) var task = TaskService.shared.rootTask
     
     init() {
         super.init(nibName: .none, bundle: .none)
@@ -59,7 +59,7 @@ class ViewController: UIViewController {
             let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
 //            print("Text field: \(textField?.text)")
             let newTask = Task(name: textField!.text!)
-            self.tasks.append(newTask)
+            self.task.childTasks.append(newTask)
             self.rootView.tableView.reloadData()
         }))
 
@@ -78,20 +78,20 @@ class ViewController: UIViewController {
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        tasks.count
+        task.childTasks.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.reuseId, for: indexPath) as! TableViewCell
         cell.selectionStyle = .none
-        let task = tasks[indexPath.row]
-        cell.configure(task: task)
+        let cellTask = task.childTasks[indexPath.row]
+        cell.configure(task: cellTask)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let newViewController = ViewController()
-        newViewController.tasks = self.tasks[indexPath.row].childTasks
+        newViewController.task = self.task.childTasks[indexPath.row]
         //        self.present(newViewController, animated: true, completion: nil)
         navigationController?.pushViewController(newViewController, animated: true)
     }
