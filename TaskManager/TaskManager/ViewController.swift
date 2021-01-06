@@ -12,11 +12,12 @@ class ViewController: UIViewController {
     
     private(set) var rootView = MainView()
     
-    private(set) var cityNames = [ "Вологда", "Пермь", "Самара", "Тула", "Киев", "Орел", "Минск", "Москва", "Казань", "Момбаса"]
-    
-    private(set) var weatherItems = [WeatherItem]()
-    
-    private let weatherService = WeatherService()
+    private(set) var tasks = [
+        Task(name: "выпить", durationInMinutes: 60),
+        Task(name: "покурить", durationInMinutes: 5),
+        Task(name: "еще выпить", durationInMinutes: 60),
+        Task(name: "еще покурить", durationInMinutes: 5)
+    ]
     
     init() {
         super.init(nibName: .none, bundle: .none)
@@ -50,21 +51,26 @@ class ViewController: UIViewController {
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        weatherItems.count
+        tasks.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.reuseId, for: indexPath) as! TableViewCell
         cell.selectionStyle = .none
-        let weatherItem = weatherItems[indexPath.row]
-        cell.configure(weatherItem: weatherItem)
+        let task = tasks[indexPath.row]
+        cell.configure(task: task)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let fullSizeViewController = FullSizeViewController()
-        fullSizeViewController.weatherItem = weatherItems[indexPath.row]
-        self.present(fullSizeViewController, animated: true, completion: nil)
+        let newViewController = ViewController()
+        newViewController.tasks = [
+        Task(name: "снова выпить", durationInMinutes: 60),
+        Task(name: "снова покурить", durationInMinutes: 5),
+        Task(name: "опять выпить", durationInMinutes: 60),
+        Task(name: "опять покурить", durationInMinutes: 5)
+        ]
+        self.present(newViewController, animated: true, completion: nil)
     }
     
     

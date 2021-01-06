@@ -1,6 +1,6 @@
 //
-//  MainTableViewCell.swift
-//  WhiteNFluffyTestTask
+//  TableViewCell.swift
+//  TaskManager
 //
 //  Created by Andrey on 02/01/2021.
 //  Copyright © 2021 Andrey Anoshkin. All rights reserved.
@@ -12,7 +12,7 @@ class TableViewCell: UITableViewCell {
     
     static let reuseId: String = "TableViewCell"
     
-    private(set) var cityNameLabel: UILabel = {
+    private(set) var taskNameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 32, weight: .bold)
         label.numberOfLines = 1
@@ -22,7 +22,7 @@ class TableViewCell: UITableViewCell {
         return label
     }()
     
-    private(set) var temperatureLabel: UILabel = {
+    private(set) var taskDurationLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 32, weight: .bold)
         label.numberOfLines = 1
@@ -43,25 +43,27 @@ class TableViewCell: UITableViewCell {
     }
     
     func addViews() {
-        contentView.addSubview(cityNameLabel)
-        contentView.addSubview(temperatureLabel)
+        contentView.addSubview(taskNameLabel)
+        contentView.addSubview(taskDurationLabel)
     }
     
-    func configure(weatherItem: WeatherItem) {
-        cityNameLabel.text = weatherItem.name
+    func configure(task: Task) {
+        taskNameLabel.text = task.name
 
     }
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
             
-            cityNameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
-            cityNameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            cityNameLabel.widthAnchor.constraint(equalToConstant: 130),
+            taskNameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
+            taskNameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            taskNameLabel.widthAnchor.constraint(equalToConstant: 200),
+            taskNameLabel.heightAnchor.constraint(equalToConstant: 130),
             
-            temperatureLabel.centerYAnchor.constraint(equalTo: cityNameLabel.centerYAnchor),
-            temperatureLabel.widthAnchor.constraint(equalToConstant: 100),
-            temperatureLabel.leadingAnchor.constraint(equalTo: cityNameLabel.trailingAnchor, constant: 20),
+            taskDurationLabel.topAnchor.constraint(equalTo: taskNameLabel.bottomAnchor),
+            taskDurationLabel.widthAnchor.constraint(equalToConstant: 200),
+            taskDurationLabel.leadingAnchor.constraint(equalTo: taskNameLabel.trailingAnchor, constant: 20),
+            taskDurationLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 20),
         ])
     }
 }
