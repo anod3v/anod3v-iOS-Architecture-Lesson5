@@ -20,7 +20,7 @@ class JSONParserFromStruct {
             completion(result, nil)
             
         } catch (let error) {
-            
+            debugPrint(error.localizedDescription)
             completion(nil, error)
         }
     }
