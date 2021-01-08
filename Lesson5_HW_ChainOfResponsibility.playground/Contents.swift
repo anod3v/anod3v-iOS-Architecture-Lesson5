@@ -11,39 +11,22 @@ let data1 = data(from: "1")
 let data2 = data(from: "2")
 let data3 = data(from: "3")
 
-enum Data1Error: Error {
-    case loginDoesNotExist
-    case wrongPassword
-    case smsCodeInvalid
-}
-
-enum Data2Error: Error {
-    case noConnection
-    case serverNotResponding
-}
-
-enum Data3Error: Error {
-    case sessionInvalid
-    case versionIsNotSupported
-    case general
-}
-
-func requestData<Output: Codable>(data: Data, completion: @escaping (Output?, Error?) -> Void) {
-    let decoder = JSONDecoder()
-    let jsonData = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments)
-    debugPrint("jsonData:", jsonData)
+class JSONParserFromStruct {
     
-    do {
+    func requestData<Output: Codable>(data: Data, completion: @escaping (Output?, Error?) -> Void) {
+        let decoder = JSONDecoder()
+        let jsonData = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments)
+        debugPrint("jsonData:", jsonData)
         
-        let result = try decoder.decode(Output.self, from: data)
-        debugPrint("result:", result)
-        completion(result, nil)
-        
-    } catch (let error) {
-        
-        completion(nil, error)
-    }
+        do {
+            
+            let result = try decoder.decode(Output.self, from: data)
+            debugPrint("result:", result)
+            completion(result, nil)
+         
 }
+
+let jsonParser = JSONParserFromStruct()
 
 struct Person: Codable {
     let age: Int
@@ -59,44 +42,38 @@ struct Person: Codable {
     }
 }
 
-struct Data1Response<T: Codable>: Codable {
+struct Response: Codable {
     let data: [Person]
-    
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case data = "data"
     }
 }
 
 
 
-protocol ErrorHandler {
+protocol DataParser {
     
-    var next: ErrorHandler? { get set }
+    var next: DataParser? { get set }
     
-    func handleError(_ error: Error)
+    func parseData(_ data: Data)
 }
 
-class Data1ErrorHandler: ErrorHandler {
+class Data1Parser: DataParser {
     
-    var next: ErrorHandler?
+    var next: DataParser?
     
-    func handleError(_ error: Error) {
-        guard let data1Error = error as? Data1Error else {
-            self.next?.handleError(error)
-            return
+    func parseData(_ data: Data) {
+        return jsonParser.downloadList(of: [Person].self, from: data) { (result, error) in
         }
-        print(data1Error)
-        // show tooltip
-    }
 }
 
-class Data2ErrorHandler: ErrorHandler {
+class Data2Parser: DataParser {
     
-    var next: ErrorHandler?
+    var next: DataParser?
     
-    func handleError(_ error: Error) {
+    func parseData(_ data: Data) {
         guard let data2Error = error as? Data2Error else {
-            self.next?.handleError(error)
+            self.next?.parseData(error)
             return
         }
         print(data2Error)
@@ -105,13 +82,13 @@ class Data2ErrorHandler: ErrorHandler {
     }
 }
 
-class Data3ErrorHandler: ErrorHandler {
+class Data3Parser: DataParser {
     
-    var next: ErrorHandler?
+    var next: DataParser?
     
-    func handleError(_ error: Error) {
+    func parseData(_ data: Data) {
         guard let data3Error = error as? Data3Error else {
-            self.next?.handleError(error)
+            self.next?.parseData(error)
             return
         }
         print(data3Error)
@@ -121,14 +98,14 @@ class Data3ErrorHandler: ErrorHandler {
     }
 }
 
-let data1ErrorHandler = Data1ErrorHandler()
-let data2ErrorHandler = Data2ErrorHandler()
-let data3ErrorHandler = Data3ErrorHandler()
-let errorHandler: ErrorHandler = data1ErrorHandler
+let data1Parser = Data1Parser()
+let data2Parser = Data2Parser()
+let data3Parser = Data3Parser()
+let errorHandler: DataParser = data1Parser
 
-data1ErrorHandler.next = data2ErrorHandler
-data2ErrorHandler.next = data3ErrorHandler
-data3ErrorHandler.next = nil
+data1Parser.next = data2Parser
+data2Parser.next = data3Parser
+data3Parser.next = nil
 
 requestData(data: data1) { (person, error) in
     if let error = error {
@@ -139,3 +116,4 @@ requestData(data: data1) { (person, error) in
     }
 }
 
+}
