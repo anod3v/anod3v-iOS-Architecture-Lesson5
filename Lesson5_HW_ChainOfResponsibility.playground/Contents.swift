@@ -13,16 +13,22 @@ let data3 = data(from: "3")
 
 class JSONParserFromStruct {
     
-    func requestData<Output: Codable>(data: Data, completion: @escaping (Output?, Error?) -> Void) {
+    func requestData<T: Codable>(from: Data, of type: T.Type, completion: @escaping (T?, Error?) -> Void) {
         let decoder = JSONDecoder()
         let jsonData = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments)
         debugPrint("jsonData:", jsonData)
         
         do {
             
-            let result = try decoder.decode(Output.self, from: data)
+            let result = try decoder.decode(T.self, from: data)
             debugPrint("result:", result)
             completion(result, nil)
+            
+        } catch (let error) {
+            
+            completion(nil, error)
+        }
+    }
          
 }
 
@@ -63,7 +69,10 @@ class Data1Parser: DataParser {
     var next: DataParser?
     
     func parseData(_ data: Data) {
-        return jsonParser.downloadList(of: [Person].self, from: data) { (result, error) in
+        return jsonParser.requestData(from: data, of: [Person].self) { (result, error) in
+            guard let result = result else {
+                self.next?.parseData(data)
+            }
         }
 }
 
