@@ -11,31 +11,31 @@ let data1 = data(from: "1")
 let data2 = data(from: "2")
 let data3 = data(from: "3")
 
-enum LoginError: Error {
+enum Data1Error: Error {
     case loginDoesNotExist
     case wrongPassword
     case smsCodeInvalid
 }
 
-enum NetworkError: Error {
+enum Data2Error: Error {
     case noConnection
     case serverNotResponding
 }
 
-enum GeneralError: Error {
+enum Data3Error: Error {
     case sessionInvalid
     case versionIsNotSupported
     case general
 }
 
-func requestData(data: Data, completion: @escaping (Person?, Error?) -> Void) {
+func requestData<Output: Codable>(data: Data, completion: @escaping (Output?, Error?) -> Void) {
     let decoder = JSONDecoder()
     let jsonData = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments)
     debugPrint("jsonData:", jsonData)
     
     do {
         
-        let result = try decoder.decode(Person.self, from: data)
+        let result = try decoder.decode(Output.self, from: data)
         debugPrint("result:", result)
         completion(result, nil)
         
@@ -46,17 +46,24 @@ func requestData(data: Data, completion: @escaping (Person?, Error?) -> Void) {
 }
 
 struct Person: Codable {
-    let id: Int
-    let firstName, lastName: String
-    let photo_200: String
-    let trackCode: String
+    let age: Int
+    let isDeveloper: Int
+    let name: String
+
 
     enum CodingKeys: String, CodingKey {
-        case id
-        case firstName
-        case lastName
-        case photo_200
-        case trackCode
+        case age
+        case isDeveloper
+        case name
+
+    }
+}
+
+struct Data1Response<T: Codable>: Codable {
+    let data: [Person]
+    
+    enum CodingKeys: String, CodingKey {
+        case data = "data"
     }
 }
 
@@ -69,59 +76,59 @@ protocol ErrorHandler {
     func handleError(_ error: Error)
 }
 
-class LoginErrorHandler: ErrorHandler {
+class Data1ErrorHandler: ErrorHandler {
     
     var next: ErrorHandler?
     
     func handleError(_ error: Error) {
-        guard let loginError = error as? LoginError else {
+        guard let data1Error = error as? Data1Error else {
             self.next?.handleError(error)
             return
         }
-        print(loginError)
+        print(data1Error)
         // show tooltip
     }
 }
 
-class NetworkErrorHandler: ErrorHandler {
+class Data2ErrorHandler: ErrorHandler {
     
     var next: ErrorHandler?
     
     func handleError(_ error: Error) {
-        guard let networkError = error as? NetworkError else {
+        guard let data2Error = error as? Data2Error else {
             self.next?.handleError(error)
             return
         }
-        print(networkError)
+        print(data2Error)
         // show alert
         // try repeat network request
     }
 }
 
-class GeneralErrorHandler: ErrorHandler {
+class Data3ErrorHandler: ErrorHandler {
     
     var next: ErrorHandler?
     
     func handleError(_ error: Error) {
-        guard let generalError = error as? GeneralError else {
+        guard let data3Error = error as? Data3Error else {
             self.next?.handleError(error)
             return
         }
-        print(generalError)
+        print(data3Error)
         // show error view controller
         // try repeat request
         // log error
     }
 }
 
-let loginErrorHandler = LoginErrorHandler()
-let networkErrorHandler = NetworkErrorHandler()
-let generalErrorHandler = GeneralErrorHandler()
-let errorHandler: ErrorHandler = loginErrorHandler
+let data1ErrorHandler = Data1ErrorHandler()
+let data2ErrorHandler = Data2ErrorHandler()
+let data3ErrorHandler = Data3ErrorHandler()
+let errorHandler: ErrorHandler = data1ErrorHandler
 
-loginErrorHandler.next = networkErrorHandler
-networkErrorHandler.next = generalErrorHandler
-generalErrorHandler.next = nil
+data1ErrorHandler.next = data2ErrorHandler
+data2ErrorHandler.next = data3ErrorHandler
+data3ErrorHandler.next = nil
 
 requestData(data: data1) { (person, error) in
     if let error = error {
