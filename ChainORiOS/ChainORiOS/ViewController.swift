@@ -51,7 +51,7 @@ lazy var data3 = data(from: "3")
 
 struct Person: Codable {
     let age: Int
-    let isDeveloper: Int
+    let isDeveloper: Bool
     let name: String
 
 

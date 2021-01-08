@@ -228,14 +228,14 @@
             landmarkType = "13">
             <Locations>
                <Location
-                  uuid = "D93773CE-1AB3-4005-8BF6-8774D384137F - 30f063523c435c30"
+                  uuid = "D93773CE-1AB3-4005-8BF6-8774D384137F - b402ee17f8497e3"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "ChainORiOS.ViewController.Response.(CodingKeys in _D637741F6BE85D99B8100E9446CDC917).init(rawValue: Swift.String) -&gt; Swift.Optional&lt;ChainORiOS.ViewController.Response.(CodingKeys in _D637741F6BE85D99B8100E9446CDC917)&gt;"
                   moduleName = "ChainORiOS"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/apple/Desktop/ChainORiOS%202/ChainORiOS/ChainORiOS/ViewController.swift"
+                  urlString = "file:///Users/apple/Library/Mobile%20Documents/com~apple~CloudDocs/Desktop/Geekbrains/13.%20Arcitechture/Lesson5/git/anod3v-iOS-Architecture-Lesson5/ChainORiOS/ChainORiOS/ViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "69"
@@ -243,14 +243,14 @@
                   offsetFromSymbolStart = "64">
                </Location>
                <Location
-                  uuid = "D93773CE-1AB3-4005-8BF6-8774D384137F - 509b2d805958b04b"
+                  uuid = "D93773CE-1AB3-4005-8BF6-8774D384137F - 6b2b60331a9f7b98"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "ChainORiOS.ViewController.Response.(CodingKeys in _D637741F6BE85D99B8100E9446CDC917).rawValue.getter : Swift.String"
                   moduleName = "ChainORiOS"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/apple/Desktop/ChainORiOS%202/ChainORiOS/ChainORiOS/ViewController.swift"
+                  urlString = "file:///Users/apple/Library/Mobile%20Documents/com~apple~CloudDocs/Desktop/Geekbrains/13.%20Arcitechture/Lesson5/git/anod3v-iOS-Architecture-Lesson5/ChainORiOS/ChainORiOS/ViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "69"
@@ -276,14 +276,14 @@
             landmarkType = "3">
             <Locations>
                <Location
-                  uuid = "898687F6-FB67-4C9E-8453-D9ADC3FFB7AC - 55648cfdbb1b8b52"
+                  uuid = "898687F6-FB67-4C9E-8453-D9ADC3FFB7AC - 6ed4c14ef8dc4081"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "ChainORiOS.ViewController.data1.getter : Foundation.Data"
                   moduleName = "ChainORiOS"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/apple/Desktop/ChainORiOS%202/ChainORiOS/ChainORiOS/ViewController.swift"
+                  urlString = "file:///Users/apple/Library/Mobile%20Documents/com~apple~CloudDocs/Desktop/Geekbrains/13.%20Arcitechture/Lesson5/git/anod3v-iOS-Architecture-Lesson5/ChainORiOS/ChainORiOS/ViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "48"
@@ -291,14 +291,14 @@
                   offsetFromSymbolStart = "537">
                </Location>
                <Location
-                  uuid = "898687F6-FB67-4C9E-8453-D9ADC3FFB7AC - 8862773e577ebf66"
+                  uuid = "898687F6-FB67-4C9E-8453-D9ADC3FFB7AC - b3d23a8d14b974b5"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "ChainORiOS.ViewController.data1.setter : Foundation.Data"
                   moduleName = "ChainORiOS"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/apple/Desktop/ChainORiOS%202/ChainORiOS/ChainORiOS/ViewController.swift"
+                  urlString = "file:///Users/apple/Library/Mobile%20Documents/com~apple~CloudDocs/Desktop/Geekbrains/13.%20Arcitechture/Lesson5/git/anod3v-iOS-Architecture-Lesson5/ChainORiOS/ChainORiOS/ViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "48"
@@ -306,14 +306,14 @@
                   offsetFromSymbolStart = "153">
                </Location>
                <Location
-                  uuid = "898687F6-FB67-4C9E-8453-D9ADC3FFB7AC - d53af2b6de97f651"
+                  uuid = "898687F6-FB67-4C9E-8453-D9ADC3FFB7AC - ee8abf059d503d82"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "ChainORiOS.ViewController.data1.modify : Foundation.Data"
                   moduleName = "ChainORiOS"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/apple/Desktop/ChainORiOS%202/ChainORiOS/ChainORiOS/ViewController.swift"
+                  urlString = "file:///Users/apple/Library/Mobile%20Documents/com~apple~CloudDocs/Desktop/Geekbrains/13.%20Arcitechture/Lesson5/git/anod3v-iOS-Architecture-Lesson5/ChainORiOS/ChainORiOS/ViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -321,14 +321,14 @@
                   offsetFromSymbolStart = "26">
                </Location>
                <Location
-                  uuid = "898687F6-FB67-4C9E-8453-D9ADC3FFB7AC - 218214ae0bc1b266"
+                  uuid = "898687F6-FB67-4C9E-8453-D9ADC3FFB7AC - 1a32591d480679b5"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "ChainORiOS.ViewController.data1.modify : Foundation.Data with unmangled suffix &quot;.resume.0&quot;"
                   moduleName = "ChainORiOS"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/apple/Desktop/ChainORiOS%202/ChainORiOS/ChainORiOS/ViewController.swift"
+                  urlString = "file:///Users/apple/Library/Mobile%20Documents/com~apple~CloudDocs/Desktop/Geekbrains/13.%20Arcitechture/Lesson5/git/anod3v-iOS-Architecture-Lesson5/ChainORiOS/ChainORiOS/ViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "48"
@@ -336,14 +336,14 @@
                   offsetFromSymbolStart = "31">
                </Location>
                <Location
-                  uuid = "898687F6-FB67-4C9E-8453-D9ADC3FFB7AC - 1691adc2312a3e0e"
+                  uuid = "898687F6-FB67-4C9E-8453-D9ADC3FFB7AC - 2d21e07172edf5dd"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "ChainORiOS.ViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; ChainORiOS.ViewController"
                   moduleName = "ChainORiOS"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/apple/Desktop/ChainORiOS%202/ChainORiOS/ChainORiOS/ViewController.swift"
+                  urlString = "file:///Users/apple/Library/Mobile%20Documents/com~apple~CloudDocs/Desktop/Geekbrains/13.%20Arcitechture/Lesson5/git/anod3v-iOS-Architecture-Lesson5/ChainORiOS/ChainORiOS/ViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "48"
@@ -351,14 +351,14 @@
                   offsetFromSymbolStart = "315">
                </Location>
                <Location
-                  uuid = "898687F6-FB67-4C9E-8453-D9ADC3FFB7AC - 3024322341165c99"
+                  uuid = "898687F6-FB67-4C9E-8453-D9ADC3FFB7AC - b947f9002d1974a"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "ChainORiOS.ViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;ChainORiOS.ViewController&gt;"
                   moduleName = "ChainORiOS"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/apple/Desktop/ChainORiOS%202/ChainORiOS/ChainORiOS/ViewController.swift"
+                  urlString = "file:///Users/apple/Library/Mobile%20Documents/com~apple~CloudDocs/Desktop/Geekbrains/13.%20Arcitechture/Lesson5/git/anod3v-iOS-Architecture-Lesson5/ChainORiOS/ChainORiOS/ViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "48"
@@ -413,6 +413,38 @@
             startingLineNumber = "35"
             endingLineNumber = "35"
             landmarkName = "startParsingData(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "32ED61AA-B5BD-4A0D-85ED-D8C9F3232720"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ChainORiOS/JSONParserFromStruct.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "requestData(from:of:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "128FC0C0-323E-4DC9-A1C0-9CCDC374ABCB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ChainORiOS/JSONParserFromStruct.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "requestData(from:of:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
